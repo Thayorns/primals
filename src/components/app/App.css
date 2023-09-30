@@ -1,6 +1,33 @@
-.App {
+
+.wrapper-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
   height: 100vh;
-  text-align: center;
-  background-color: rgb(97, 34, 34);
 }
 
+.box {
+  background: white;
+  border-radius: 30px;
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  top: calc(50% - 150px / 2);
+  left: calc(50% - 150px / 2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-icon {
+  width: 80%;
+  height: 80%;
+}
+.handle{
+  width: 400px;
+  height: 150px;
+  background-color: rgba(26, 23, 23, 0.381);
+  border-radius: 30px;
+  display: flex;
+}
