@@ -1,4 +1,5 @@
 import { motion, useMotionValue, useTransform } from "framer-motion"
+import { Input, Button } from 'antd';
 
 import './App.css';
 
@@ -24,8 +25,16 @@ function App() {
   return (
     <div className="App">
       <motion.div className="wrapper-container" style={{ background }}>
-        <h1>A prime number is a whole number greater than 1 with exactly two divisors: 1 and itself.</h1>
-        <div className=""></div>
+        <div className="h1-p">
+          <h1>A prime number is a whole number greater than 1 with exactly two divisors: 1 and itself.</h1>
+          <p>
+            Let's find out if your number is prime!<br/>
+            Type it inside the field and click the button
+          </p>
+          <Input placeholder="your number" />
+          <Button>Click!</Button>
+        </div>
+        
         <div className="switch">
           <motion.div className="box" style={{ x }} drag="x" dragConstraints={{ left: 0, right: 0}}>
             
