@@ -1,80 +1,81 @@
+body{
+  background-color: black;
+}
 .App {
   margin: 0 auto;
-  height: 100vh;
-  max-width: 100vw;
-
+  max-width: 1208px;
 }
 .wrapper-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  height: 100vh;
+  /* height: 1200px; */
 }
-h1{
-  font-size: 32px;
-}
-p{
-  font-size: 28px;
-}
+
 h1,
 .switch,
 p,
 .box{
+  width: 80%;
+  margin: 140px auto;
   color: white;
   padding: 5px 10px;
   text-align: center;
-  width: 80%;
   background-color: rgba(26, 23, 23, 0.381);
   border-radius: 30px;
 }
-.h1-p{
-  padding-left: 145px;
+p{
+  font-size: 22px;
+}
+span{
+  font-weight: 600;
 }
 .ant-input,
 .ant-btn-default{
-  width: 30%;
-  height: 100px;
-  margin: 100px auto;
+  width: 20%;
+  height: 80px;
   font-size: 30px;
   border: 2px solid;
+  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.711);
+}
+.ant-input{
+  float: left;
+  margin-left: 180px;
 }
 .ant-btn-default{
-  margin-left: 185px;
+  float: right;
+  margin-right: 180px;
 }
 .box {
   background: white;
-  width: 150px;
-  height: 150px;
+  max-width: 150px;
+  max-height: 150px;
   margin: 0 auto;
-  top: calc(50% - 150px / 2);
-  left: calc(50% - 150px / 2);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .progress-icon {
-  width: 80%;
-  height: 80%;
+  width: 80px;
+  height: 80px;
 }
 .switch{
-  width: 35%;
+  width: 45%;
+
 }
 @media screen and (min-width: 320px){
-  h1{
-    font-size: 52px;
-  }
-  p{
-    font-size: 32px;
+  .App{
   }
 }
-@media screen and (min-width: 1024px){
+/* @media screen and (max-width: 425px){
   h1{
     font-size: 32px;
   }
   p{
     font-size: 28px;
   }
-}
+} */
 
