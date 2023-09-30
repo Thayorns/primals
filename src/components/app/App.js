@@ -24,8 +24,9 @@ function App() {
   return (
     <div className="App">
       <motion.div className="wrapper-container" style={{ background }}>
-        
-        <div className="handle">
+        <h1>A prime number is a whole number greater than 1 with exactly two divisors: 1 and itself.</h1>
+        <div className=""></div>
+        <div className="switch">
           <motion.div className="box" style={{ x }} drag="x" dragConstraints={{ left: 0, right: 0}}>
             
             <svg className="progress-icon" viewBox="0 0 50 50">
