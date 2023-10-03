@@ -25,7 +25,7 @@ h1,p{
   padding: 15px 10px;
 }
 h1{
-  margin-top: 55px;
+  margin-top: 25px;
   font-size: 28px;
 }
 p{
@@ -47,14 +47,15 @@ p{
 }
 .ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover{
   color: rgb(255, 254, 254);
-  border: 2px solid white;
+  /* border: 2px solid white; */
 }
+
 span{
   font-size: 30px;
 }
 
 .box{
-  margin-bottom: 55px;
+  margin-bottom: 75px;
   cursor: pointer;
   background: white;
   border-radius: 30px;
