@@ -31,7 +31,7 @@ function App() {
           Let's find out if your number is prime!<br/>
           Type it inside the field and click the button
         </p>
-        <Input placeholder="your number" />
+        <Input placeholder="your number" type="number"/>
         <Button>Click!</Button>
         
         
