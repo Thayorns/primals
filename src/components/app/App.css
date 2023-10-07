@@ -69,6 +69,14 @@ span{
   /* top: calc(50% - 150px / 2);
   left: calc(50% - 150px / 2); */
 }
+/* .box-to-the-right{
+  transform: translateX(140px);
+  transition: all ease 1.5s;
+}
+.box-to-the-left{
+  transform: translateX(-140px);
+  transition: all ease 1.5s;
+} */
 .progress-icon {
   padding: 15px;
   width: 80px;
