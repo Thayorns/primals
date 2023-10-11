@@ -2,11 +2,11 @@ import { motion, useMotionValue, useTransform } from "framer-motion"
 import { Input, Button } from 'antd';
 
 import './App.css';
-import { useState } from "react";
+import { useState} from "react";
 
 function App() {
   const x = useMotionValue(0);
-  const xInput = [-30, 0, 30];
+  const xInput = [-60, 0, 60];
   const background = useTransform(x, xInput, [
     "linear-gradient(180deg, #ff008c 0%, rgb(211, 9, 225) 100%)",
     "linear-gradient(180deg, #7700ff 0%, rgb(68, 0, 255) 100%)",
@@ -21,25 +21,60 @@ function App() {
   const crossPathA = useTransform(x, [-10, -55], [0, 1]);
   const crossPathB = useTransform(x, [-50, -100], [0, 1]);
   const [userNum, setUserNum] = useState()
+  // const inputRef = useRef(null)
   
   const primeCheck = (userNum) => {
+    const redOne = document.querySelector('.red-one')
+    const redTwo = document.querySelector('.red-two')
+    const green = document.querySelector('.green')
+    const progressIcon = document.querySelector('path.progress-icon')
+    const container = document.querySelector('.container')
     const box = document.querySelector('.box')
-    // e.preventDefault()
-    let notDivisorsForUserNum = []
-    for(let i = 2; i < userNum; i++){
-      if(userNum % i === 0){
-        notDivisorsForUserNum.push(i)
+  
+    let isPrime = true
+    if (userNum <= 1 || userNum == null) {
+      isPrime = false
+    }
+    
+    for (let i = 2; i <= Math.sqrt(userNum); i++) {
+      if (userNum % i === 0) {
+        isPrime = false
+        break
       }
     }
-    notDivisorsForUserNum.length === 0
-      ? box.style.cssText = `
-        transform: translateX(140px);
+    if (isPrime) {
+      // clear previous
+      progressIcon.classList.remove('not-prime-color')
+      redOne.classList.remove('red-stroke')
+      redTwo.classList.remove('red-stroke')
+      // --------------------------------------------//
+      // add new
+      box.style.cssText = `
+        transform: translateX(100%);
         transition: all ease 0.5s;
-        `
-      : box.style.cssText = `
-      transform: translateX(-140px);
-      transition: all ease 0.5s;
       `
+      container.style.cssText = `
+        background: linear-gradient(180deg, rgb(230, 255, 0) 0%, rgb(3, 209, 0) 100%);
+      `
+      progressIcon.classList.add('prime-color')
+      green.classList.add('green-stroke')
+    } else {
+      // clear previous
+      progressIcon.classList.remove('prime-color')
+      green.classList.remove('green-stroke')
+      // --------------------------------------------//
+      // add new
+      box.style.cssText = `
+        transform:translateX(-100%);
+        transition: all ease 0.5s;
+      `
+      container.style.cssText = `
+        background: linear-gradient(180deg, #ff008c 0%, rgb(211, 9, 225) 100%);
+      `
+      progressIcon.classList.add('not-prime-color')
+      redOne.classList.add('red-stroke')
+      redTwo.classList.add('red-stroke')
+    }
   }
  
   
@@ -52,23 +87,35 @@ function App() {
           Let's find out if your number is prime!<br/>
           Type it inside the field and click the button
         </p>
-        <Input placeholder="your number" 
+        <Input placeholder="your number"
+          required
           type="number"
+          // ref={inputRef}
           onChange={(e)=> setUserNum(e.target.value)}
           />
-        <Button onClick={primeCheck}>Click!</Button>
+        <Button 
+          onClick={() => {
+            primeCheck(userNum)
+          }}
+        >
+          Click!
+        </Button>
         
         
-        <motion.div className="box" style={{ x }} drag="x" dragConstraints={{ left: 0, right: 0}}>
+        <motion.div className="box" 
+          style={{ x }} 
+          drag="x" 
+          dragConstraints={{ left: 0, right: 0}}>
+          
           <svg className="progress-icon" viewBox="0 0 50 50">
-            <motion.path
+            <motion.path className='progress-icon'// ALL stuff
               fill="none"
               strokeWidth="2"
               stroke={color}
               d="M 0, 20 a 20, 20 0 1,0 40,0 a 20, 20 0 1,0 -40,0"
-              style={{ translateX: 5, translateY: 5 }}
+              // style={{ translateX: 5, translateY: 5 }} он теперь в CSS
             />
-            <motion.path
+            <motion.path className='green'
               fill="none"
               strokeWidth="2"
               stroke={color}
@@ -76,7 +123,7 @@ function App() {
               strokeDasharray="0 1"
               style={{ pathLength: tickPath }}
             />
-            <motion.path
+            <motion.path className='red-one'// RED LEFT
               fill="none"
               strokeWidth="2"
               stroke={color}
@@ -84,7 +131,7 @@ function App() {
               strokeDasharray="0 1"
               style={{ pathLength: crossPathA }}
             />
-            <motion.path
+            <motion.path className='red-two'// RED RIGHT
               fill="none"
               strokeWidth="2"
               stroke={color}
