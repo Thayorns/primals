@@ -3,7 +3,7 @@ import { Input, Button, Popover } from 'antd';
 import { useEffect } from 'react'
 
 import './App.css';
-import { useState, useMemo} from "react";
+import { useState,useRef, useMemo} from "react";
 
 function App() {
   const x = useMotionValue(0)
@@ -22,7 +22,7 @@ function App() {
   const crossPathA = useTransform(x, [-10, -55], [0, 1]);
   const crossPathB = useTransform(x, [-50, -100], [0, 1]);
   const [userNum, setUserNum] = useState(null)
-  
+  const inputRef = useRef(null)
   
   // const text = <span>Congratulations! You did it!</span>;//POPOVER
   // const [showArrow, setShowArrow] = useState(true);
@@ -50,10 +50,23 @@ function App() {
       animate(x, -100, { duration: 0.9 })
     }
   }
+  //Box's refresh
   useEffect(() => {
     primeCheck(userNum)
     animate(x, 0, { duration: 0.5 })
   }, [userNum])
+  
+  //Input's focus when render
+  useEffect(() => {
+    inputRef.current.focus();
+  }, [])
+  
+  //при нажатии на Enter запуск primeCheck
+  const handleEnterUserNumChange = (e) => {
+    if (e.key === 'Enter') {
+      primeCheck(userNum);
+    }
+  };
   
   return (
     <div className="App">
@@ -67,7 +80,9 @@ function App() {
         <Input placeholder="your number"
           required
           type="number"
+          ref={inputRef}
           onChange={(e)=> setUserNum(e.target.value)}
+          onKeyDown={handleEnterUserNumChange}
           />
         <Button 
           onClick={() => {
