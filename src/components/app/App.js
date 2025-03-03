@@ -72,12 +72,12 @@ function App() {
     <div className="App">
       <motion.div className="container" style={{ background }}>
         
-        <h1>A prime number is a whole number greater than 1 with exactly two divisors: 1 and itself.</h1>
+        <h1>Простое число — это целое число больше 1, имеющее ровно два делителя: 1 и само себя.</h1>
         <p>
-          Let's find out if your number is prime!<br/>
-          Type it inside the field and click the button
+        Давайте выясним, является ли ваше число простым!<br/>
+        Введите его в поле и нажмите кнопку.
         </p>
-        <Input placeholder="your number"
+        <Input placeholder="ваше число"
           required
           type="number"
           ref={inputRef}
