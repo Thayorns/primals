@@ -24,15 +24,6 @@ function App() {
   const [userNum, setUserNum] = useState(null)
   const inputRef = useRef(null)
   
-  // const text = <span>Congratulations! You did it!</span>;//POPOVER
-  // const [showArrow, setShowArrow] = useState(true);
-  // const [arrowAtCenter, setArrowAtCenter] = useState(false)
-  // const mergedArrow = useMemo(() => {
-  //   if (arrowAtCenter) return { pointAtCenter: true };
-  //   return showArrow;
-  // }, [showArrow, arrowAtCenter])
-  //--------------------------------------
-  
   const primeCheck = (userNum) => {
     let isPrime = true
     if (userNum <= 1 || userNum == null) {
