@@ -63,10 +63,10 @@ function App() {
     <div className="App">
       <motion.div className="container" style={{ background }}>
         
-        <h1>Простое число — это целое число больше 1, имеющее ровно два делителя: 1 и само себя.</h1>
+        <h1>A prime number is an integer greater than 1 that has exactly two divisors: 1 and itself.</h1>
         <p>
-        Давайте выясним, является ли ваше число простым!<br/>
-        Введите его в поле и нажмите кнопку.
+        Let's find out if your number is prime!<br/>
+        Enter it in the field and click the button.
         </p>
         <Input placeholder="ваше число"
           required
@@ -83,7 +83,6 @@ function App() {
           Click!
         </Button>
         
-        {/* <Popover placement="leftBottom" title={text} arrow={mergedArrow}></Popover> */}
         <div className="switch">
           <motion.div className="box" 
             style={{ x }}
@@ -98,7 +97,6 @@ function App() {
                 strokeWidth="2"
                 stroke={color}
                 d="M 0, 20 a 20, 20 0 1,0 40,0 a 20, 20 0 1,0 -40,0"
-                // style={{ translateX: 5, translateY: 5 }} он теперь в CSS
               />
               <motion.path className='green'
                 fill="none"
